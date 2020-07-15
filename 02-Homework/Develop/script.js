@@ -1,15 +1,4 @@
-// Assignment Code?
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  /*var password = generatePassword();*/
-  
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 function getRandomNumber(limit){
   var basicRandom = Math.random();
   var randomLimit = basicRandom*limit;
@@ -27,16 +16,18 @@ number:["1","2","3","4","5","6","7","8","9","0"]
 
 
 //this is my input from my user
-var passwordLenght=String;
-    passwordLenght= prompt("how many characters you want in your password?");
-if(passwordLenght>=8){alert("you choose your password to be "+passwordLenght)}
-if(passwordLenght<8){alert("you need at least 8 characters")
-  for (var i=0;passwordLenght<8;i++){
+ 
+var passwordLenght =prompt("how many characters you want in your password?");
+  if(passwordLenght>=8){alert("you choose your password to be "+passwordLenght+ " characters long?")}
+  if(passwordLenght<8){alert("you need at least 8 characters")
+    for (var i=0;passwordLenght<8;i++){
      passwordLenght= prompt("how many characters you want in your password?");
      if(passwordLenght<8){alert("you need at least 8 characters");
     }
   }
 }
+
+console.log(typeof passwordLenght)
 var yesUpperCase = confirm("Would you like upper cases?");
 var yesLowerCase = confirm("Would you like lower cases?");
 var yesSpecialCharacter = confirm("Would you like special character's?");
@@ -47,52 +38,54 @@ var generatePassword = '';
 if (yesUpperCase){
   var myUppers = myLibrary.upper[getRandomNumber(myLibrary.upper.length)];
   generatePassword = generatePassword +myUppers;
+  console.log(generatePassword);
 }
 if (yesLowerCase){
   var myLowers = myLibrary.lower[getRandomNumber(myLibrary.lower.length)];
   generatePassword =generatePassword + myLowers;
+  console.log(generatePassword);
 }
 if (yesSpecialCharacter){
   var mySpecials = myLibrary.special[getRandomNumber(myLibrary.special.length)];
   generatePassword = generatePassword+mySpecials;
+  console.log(generatePassword);
 }
 if (yesNumber){
   var myNumbers = myLibrary.number[getRandomNumber(myLibrary.number.length)];
   generatePassword = generatePassword + myNumbers;
+  console.log(generatePassword);
 }
+
+//here we are getting the ammount of objects that is user is using
 var usersChoice = generatePassword.length;
 console.log("you have chosen "+ usersChoice+" is this right?")
-//here we have to subtract the users choice.
-for (var i=0;i<newStart;i++){
-   var mytoppers = myLibrary.upper[getRandomNumber(myLibrary.upper.length)];
-   var mytowers = myLibrary.lower[getRandomNumber(myLibrary.lower.length)];
-   var mySpeCials = myLibrary.special[getRandomNumber(myLibrary.special.length)];
-   var myNumBers = myLibrary.number[getRandomNumber(myLibrary.number.length)];
-generatePassword+= (mytoppers+mytowers+mySpeCials+myNumBers);
-console.log(generatePassword)
-}
-//these are my functions with my different libraries
-/*
-function getSpecialCharacters() {
-  var specialCharacters=[".","!","@","#","$","%","^","&","*","(",")","_","-","+", "=","{","}","/","<",">",":",",","?"];
-	return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-}
-function getNumber() {
-  var number=[1,2,3,4,5,6,7,8,9,0]
-	return number[Math.floor(Math.random() * number.length)];
-}
-function getLowerCase() {
-  var lowerCase=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-	return lowerCase[Math.floor(Math.random() * lowerCase.length)];
-}
-function getUpperCase() {
-  var upperCase=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-return upperCase[Math.floor(Math.random() * upperCase.length)];
-}
-*/
-// Add event listener to generate button
+//here subtract the password length by the ammount of objects that the user chooses.
+var newStart = passwordLenght -  usersChoice;
+console.log(newStart)
 
-generateBtn.addEventListener("click", writePassword);
+for (var i=0;i<newStart;i++){
+   var myToppers = myLibrary.upper[getRandomNumber(myLibrary.upper.length)];
+
+   var myTowers = myLibrary.lower[getRandomNumber(myLibrary.lower.length)];
+
+   var mySpeCials = myLibrary.special[getRandomNumber(myLibrary.special.length)];
+
+   var myNumBers = myLibrary.number[getRandomNumber(myLibrary.number.length)];
+//this is my final random password, i keep filling it up with the last value here i dont know why 
+//ASK?|??
+   generatePassword+= (myToppers,myTowers,mySpeCials,myNumBers) 
+   
+   console.log(generatePassword)
+
+}
+
+// this is the onclick event for my passwors to be displayed on the screen
+var generateButton = document.getElementById("generate");
+
+generateButton.onclick = function(){
+  var password = document.getElementById("password");
+  password.innerHTML = generatePassword;
+}
 
  
 
