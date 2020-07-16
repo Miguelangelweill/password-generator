@@ -56,8 +56,6 @@ var yesUpperCase = confirm("Would you like upper cases?");
   alert("Now click on Generate Password")
 //here subtract the password length by the ammount of objects that the user chooses.
 var newStart = passwordLenght -  generatePassword.length;
-console.log("you have chosen "+ usersChoice+" is this right?")
-;
 //this is my for loop
 for (var i=0;i<newStart;i++){ 
 generatePassword+= superLibrary[getRandomNumber(superLibrary.length)];
