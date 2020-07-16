@@ -16,9 +16,11 @@ number:["1","2","3","4","5","6","7","8","9","0"]
 
 //This is where I get the numbert of characters that my user want's
 var passwordLenght =prompt("how many characters you want in your password?");
-  if(passwordLenght>=8){alert("you choose your password to be "+passwordLenght+ " characters long?")}
-  
-  if(passwordLenght<8){alert("you need at least 8 characters")
+  if(passwordLenght>=8){
+    alert("you choose your password to be "+passwordLenght+ " characters long?")
+  }
+  if(passwordLenght<8){
+    alert("you need at least 8 characters")
     for (var i=0;passwordLenght<8;i++){
      passwordLenght= prompt("how many characters you want in your password?");
      if(passwordLenght<8){alert("you need at least 8 characters");
@@ -51,12 +53,11 @@ var yesUpperCase = confirm("Would you like upper cases?");
     generatePassword+= myLibrary.number[getRandomNumber(myLibrary.number.length)];
     superLibrary=superLibrary.concat(myLibrary.number);
   }
+  alert("Now click on Generate Password")
 //here subtract the password length by the ammount of objects that the user chooses.
 var newStart = passwordLenght -  generatePassword.length;
 console.log("you have chosen "+ usersChoice+" is this right?")
 ;
-console.log(newStart);
-
 //this is my for loop
 for (var i=0;i<newStart;i++){ 
 generatePassword+= superLibrary[getRandomNumber(superLibrary.length)];
