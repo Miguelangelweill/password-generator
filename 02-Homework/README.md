@@ -44,5 +44,12 @@ You are required to submit the following for review:
 
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
+# This is my feedback:
+
+* I get all of the information from my user from prompts at the moment the page is loaded.
+* I will not let you generate a password shorter than 8 character's long ans I will not let you create one if it is longer than 128 character's.
+* Then after all of that information is taken the user can click the button and generate their password.
+* The reason why I did the prompts before the button has been clicked instead of doing them after the user clicks to generate a passwors is because we didn't get to cover it in class on time.
+
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
